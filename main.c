@@ -1,19 +1,24 @@
 #include <stdio.h>
 
-void swap(int *x, int *y) {
-    int temp;
-    temp = *x;
-    *x = *y;
-    *y = temp;
-}
+int main(void)
+{
+    int grade[5];
+    int *p = grade;
+    int i, sum = 0;
+    double avg;
 
-int main(void) {
-    int a = 3;
-    int b = 5;
+    for(i = 0; i < 5; i++) {
+        printf("grade[%d] = ", i);
+        scanf("%d", (p + i)); 
+    }
 
-    swap(&a, &b);
+    for(i = 0; i < 5; i++) {
+        printf("grade[%d] = %d\n", i, *(p + i));
+        sum += *(p + i);
+    }
 
-    printf("a:%i, b:%i\n", a, b);
+    avg = sum / 5.0;
+    printf("average = %.2f\n", avg);
 
     return 0;
 }
